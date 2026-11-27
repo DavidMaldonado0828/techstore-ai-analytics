@@ -1,0 +1,7 @@
+"""from langchain.agents import create_agent
+agent = create_agent(
+    model,
+    tools,
+    system_prompt=system_prompt,
+)
+"""

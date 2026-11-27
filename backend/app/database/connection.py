@@ -1,3 +1,4 @@
+from langchain_community.utilities import SQLDatabase
 from sqlalchemy import create_engine, text
 
 from app.core.config import settings
@@ -15,6 +16,9 @@ engine = create_engine(
     database_url,  # Donde y con que credenciales
     pool_pre_ping=True,  # Comprueba que una conexión siga disponible antes de conectarse
 )
+
+db = SQLDatabase(engine)
+# print(db.get_usable_table_names())
 
 
 def test_connection():
