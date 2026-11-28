@@ -6,8 +6,10 @@ from app.services.query_service import process_query
 router = APIRouter()
 
 
-@router.post("/queries", response_model=QueryResponse)
+@router.post(
+    "/queries",
+    response_model=QueryResponse,
+    summary="Consultar el modelo Gold de TechStore en lenguaje natural",
+)
 def query(request: QueryRequest) -> QueryResponse:
-    answer = process_query(request.question)
-
-    return QueryResponse(question=request.question, answer=answer)
+    return process_query(request.question)
